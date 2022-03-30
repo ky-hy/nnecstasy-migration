@@ -1,0 +1,10 @@
+FROM node:16.14.2-alpine
+
+WORKDIR /app
+
+# パッケージインストール
+COPY ./prisma/package.json ./prisma/yarn.lock ./
+RUN yarn install
+
+# ファイル全コピー
+COPY ./prisma .
